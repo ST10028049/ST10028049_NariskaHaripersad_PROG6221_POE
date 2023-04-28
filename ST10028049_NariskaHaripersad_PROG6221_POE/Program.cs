@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -177,9 +178,44 @@ namespace ST10028049_NariskaHaripersad_PROG6221_POE
                 }
             }
         }
-
     }
-     
+
+    class Step // contains the methods that will perform functions on the recipe steps 
+    {
+        private string[] steps;
+        private int numOfSteps;
+        private string description;
+        private bool isInputValid;
+        public void getSteps()
+        {
+            isInputValid = false;
+            while (!isInputValid)
+            {
+                try
+                {
+                    Console.WriteLine("Enter the number of steps: "); // prompts the user to enter the number of steps that the recipe will contain 
+                    numOfSteps = Convert.ToInt32(Console.ReadLine());
+                    isInputValid = true; 
+                }
+                catch (FormatException) 
+                {
+                    Console.WriteLine("Input is invalid!");
+                }
+            }
+
+            Console.WriteLine("\r\n");
+
+            steps = new string[numOfSteps];
+
+            for (int i = 0; i < numOfSteps; i++)
+            {
+                Console.WriteLine("Enter description: ");
+                description = Console.ReadLine();
+                steps[i] = description;
+                Console.WriteLine("\r\n");
+            }
+        }
+    }
         internal class Program
     {
         static void Main(string[] args)
