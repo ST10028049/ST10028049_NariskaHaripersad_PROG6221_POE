@@ -230,10 +230,193 @@ namespace ST10028049_NariskaHaripersad_PROG6221_POE
             }
         }
     }
+
+    class RecipeApplication
+    {
+        Ingredient ingredient = new Ingredient();
+        Step step = new Step();
+        public void runApplication()
+        {
+            Console.WriteLine("Welcome!");
+            captureRecipe();
+        }
+
+        public void runMenu()
+        {
+            Console.WriteLine("What would you like to do?");
+            Console.WriteLine("1. Display recipe");
+            Console.WriteLine("2. Scale recipe");
+            Console.WriteLine("3. Clear data");
+            Console.WriteLine("4. Exit application");
+            Console.WriteLine("Enter the number of the action you would like to perform:");
+            int option = Convert.ToInt32(Console.ReadLine());
+            while (option != 1 & option != 2 & option != 3 & option != 4)
+            {
+                Console.WriteLine("Invalid option!");
+                Console.WriteLine("\r\n");
+                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("1. Display recipe");
+                Console.WriteLine("2. Scale recipe");
+                Console.WriteLine("3. Clear data");
+                Console.WriteLine("4. Exit application");
+                Console.WriteLine("Enter the number of the action you would like to perform:");
+                option = Convert.ToInt32(Console.ReadLine());
+            }
+            while (option == 1 || option == 2 || option == 3)
+            {
+                if (option == 1)
+                {
+                    Console.WriteLine("\r\n");
+                    ingredient.printIngredients();
+                    step.printSteps();
+                    Console.WriteLine("\r\n");
+                    Console.WriteLine("What would you like to do?");
+                    Console.WriteLine("1. Display recipe");
+                    Console.WriteLine("2. Scale recipe");
+                    Console.WriteLine("3. Clear data");
+                    Console.WriteLine("4. Exit application");
+                    Console.WriteLine("Enter the number of the action you would like to perform:");
+                    option = Convert.ToInt32(Console.ReadLine());
+                }
+                else
+                {
+                    if (option == 2)
+                    {
+                        Console.WriteLine("Scale the recipe by half, double or triple. Enter 1 for half, 2 for double or 3 for triple.");
+                        int scaleOption = Convert.ToInt32(Console.ReadLine());
+                        if (scaleOption == 1)
+                        {
+                            ingredient.scaleIngredients(scaleOption);
+                            runScaleRecipeMenu(scaleOption);
+                        }
+                        else
+                        {
+                            if (scaleOption == 2)
+                            {
+                                ingredient.scaleIngredients(scaleOption);
+                                runScaleRecipeMenu(scaleOption);
+                            }
+                            else
+                            {
+                                if (scaleOption == 3)
+                                {
+                                    ingredient.scaleIngredients(scaleOption);
+                                    runScaleRecipeMenu(scaleOption);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Invalid option!");
+                                    runMenu();
+                                }
+                            }
+                        }
+                    }
+
+                    else
+                    {
+                        if (option == 3)
+                        {
+                            Console.WriteLine("Confirm that you would like to clear all the data and enter a new recipe? Enter 'y' to confirm or 'n' to cancel action.");
+                            char confirmClear = Convert.ToChar(Console.ReadLine());
+                            while (confirmClear != 'y' && confirmClear != 'n')
+                            {
+                                Console.WriteLine("Invalid character! Enter 'y' to confirm or 'n' to cancel action.");
+                                confirmClear = Convert.ToChar(Console.ReadLine());
+                            }
+                            if (confirmClear == 'y')
+                            {
+                                Console.Clear();
+                                captureRecipe();
+                            }
+                            else
+                            {
+                                runMenu();
+                            }
+
+                        }
+                        else
+                        {
+                            Environment.Exit(0);
+                        }
+                    }
+                }
+            }
+        }
+        public void captureRecipe()
+        {
+            Console.WriteLine("You are required to enter the details for a single recipe.");
+            Console.WriteLine("\r\n");
+            ingredient.getIngredients();
+            step.getSteps();
+            Console.WriteLine("The recipe details have been successfully captured.");
+            Console.WriteLine("\r\n");
+            runMenu();
+        }
+
+        public void runScaleRecipeMenu(int scaleOption)
+        {
+            Console.WriteLine("Would you like to view the scaled recipe? Enter 'y' for yes or 'n' for no");
+            char yesNo = Convert.ToChar(Console.ReadLine());
+            if (yesNo == 'y')
+            {
+                Console.WriteLine("\r\n");
+                ingredient.printIngredients();
+                step.printSteps();
+                Console.WriteLine("\r\n");
+                Console.WriteLine("Would you like to reset recipe? Enter 'y' for yes or 'n' for no.");
+                yesNo = Convert.ToChar(Console.ReadLine());
+                if (yesNo == 'y')
+                {
+                    ingredient.resetIngredients(scaleOption);
+                    Console.WriteLine("Would you like to view the reset recipe? Enter 'y' for yes or 'n' for no.");
+                    yesNo = Convert.ToChar(Console.ReadLine());
+                    if (yesNo == 'y')
+                    {
+                        Console.WriteLine("\r\n");
+                        ingredient.printIngredients();
+                        step.printSteps();
+                        Console.WriteLine("\r\n");
+                        runMenu();
+                    }
+                    else
+                    {
+                        runMenu();
+                    }
+                }
+                else
+                {
+                    if (yesNo == 'n')
+                    {
+                        runMenu();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid!");
+                        runMenu();
+                    }
+                }
+            }
+
+            else
+            {
+                if (yesNo == 'n')
+                {
+                    runMenu();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid!");
+                    runMenu();
+                }
+            }
+        }
+    }
         internal class Program
     {
         static void Main(string[] args)
         {
+            RecipeApplication app = new RecipeApplication();
+            app.runApplication();
         }
     }
 }
