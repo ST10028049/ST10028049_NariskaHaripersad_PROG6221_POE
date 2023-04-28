@@ -75,9 +75,9 @@ namespace ST10028049_NariskaHaripersad_PROG6221_POE
 
         public void printIngredients() // a method that displays the ingredient details 
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Blue; // changes the text colour to blue
             Console.WriteLine("Ingredients:");
-            Console.ResetColor();
+            Console.ResetColor(); // changes the text colour back to its default colour 
 
             for (int i = 0; i < numOfIngredients; i++)
             {
