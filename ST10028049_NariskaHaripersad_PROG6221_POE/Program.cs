@@ -20,7 +20,57 @@ namespace ST10028049_NariskaHaripersad_PROG6221_POE
 
         public void getIngredients() // a method that allows the user to input details about the recipe ingredients and stores it in memory
         {
-            
+            isInputValid = false;
+            while (!isInputValid)
+            {
+                try
+                {
+                    Console.WriteLine("Enter the number of ingredients: ");
+                    numOfIngredients = Convert.ToInt32(Console.ReadLine());
+
+                    isInputValid = true;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Input is invalid!");
+                }
+            }
+
+            Console.WriteLine("\r\n");
+
+            ingredientNames = new string[numOfIngredients];
+            ingredientQuantities = new double[numOfIngredients];
+            ingredientUnits = new string[numOfIngredients];
+
+            for (int i = 0; i < numOfIngredients; i++)
+            {
+
+                Console.WriteLine("Enter name: ");
+                name = Console.ReadLine();
+                ingredientNames[i] = name;
+
+                isInputValid = false;
+                while (!isInputValid)
+                {
+                    try
+                    {
+                        Console.WriteLine("Enter quantity: ");
+                        quantity = Convert.ToDouble(Console.ReadLine());
+                        ingredientQuantities[i] = quantity;
+                        isInputValid = true;
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Input is invalid!");
+                    }
+                }
+
+                Console.WriteLine("Enter unit of measurement: ");
+                unit = Console.ReadLine();
+                ingredientUnits[i] = unit;
+
+                Console.WriteLine("\r\n");
+            }
         }
 
         public void printIngredients() // a method that displays the ingredient details 
