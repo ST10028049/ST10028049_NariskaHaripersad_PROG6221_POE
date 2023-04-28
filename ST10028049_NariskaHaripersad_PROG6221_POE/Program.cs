@@ -215,6 +215,20 @@ namespace ST10028049_NariskaHaripersad_PROG6221_POE
                 Console.WriteLine("\r\n");
             }
         }
+
+        public void printSteps() // a method that displays the recipe steps
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Steps:");
+            Console.ResetColor();
+
+            for (int i = 0; i < numOfSteps; i++)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow; // changes the text colour to yellow 
+                Console.WriteLine((i + 1) + ". " + steps[i]); // the step description is numbered and displayed 
+                Console.ResetColor(); 
+            }
+        }
     }
         internal class Program
     {
