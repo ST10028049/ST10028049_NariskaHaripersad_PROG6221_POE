@@ -1,1 +1,3 @@
-# ST10028049_NariskaHaripersad_PROG6221_POE
+# Recipe Application 
+This is a command line application designed using C# and Visual Studio. The application is designed to capture and store details for a recipe and perform various functions on the recipe.
+## Features 
