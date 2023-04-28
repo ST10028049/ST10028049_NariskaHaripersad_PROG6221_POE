@@ -142,9 +142,40 @@ namespace ST10028049_NariskaHaripersad_PROG6221_POE
             }
         }
 
-        public void resetIngredients(int scale) // a method that resets the recipe back to its original values
+        public void resetIngredients(int scale) // a method that resets the recipe back to its original values 
         {
-            
+            if (scale == 1)
+            {
+
+                for (int i = 0; i < numOfIngredients; i++) 
+                {
+                    ingredientQuantities[i] = (ingredientQuantities[i] / 0.5); // if the ingredient was scaled by half it will be divided by half to reset it back to its original value 
+                }
+                Console.WriteLine("The recipe has been successfully reset."); // output message
+            }
+            else
+            {
+                if (scale == 2)
+                {
+                    for (int i = 0; i < numOfIngredients; i++) 
+                    {
+                        ingredientQuantities[i] = (ingredientQuantities[i] / 2); // if the ingredient was scaled by double it will be divided by 2 to reset it back to its original value 
+                    }
+                    Console.WriteLine("The recipe has been successfully reset."); // output message 
+                }
+
+                else
+                {
+                    if (scale == 3)
+                    {
+                        for (int i = 0; i < numOfIngredients; i++)
+                        {
+                            ingredientQuantities[i] = (ingredientQuantities[i] / 3); // if the ingredient was scaled by triple it will be divided by 3 to reset it back to its original value 
+                        }
+                        Console.WriteLine("The recipe has been successfully reset."); // output message 
+                    }
+                }
+            }
         }
 
     }
