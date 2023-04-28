@@ -75,7 +75,17 @@ namespace ST10028049_NariskaHaripersad_PROG6221_POE
 
         public void printIngredients() // a method that displays the ingredient details 
         {
-            
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Ingredients:");
+            Console.ResetColor();
+
+            for (int i = 0; i < numOfIngredients; i++)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("- " + ingredientQuantities[i] + " " + (ingredientUnits[i]).ToLower() + " " + ingredientNames[i]);
+                Console.ResetColor();
+            }
+
         }
 
         public void scaleIngredients(int scale) // a method that scales the ingredients 
