@@ -33,7 +33,7 @@ namespace ST10028049_NariskaHaripersad_PROG6221_POE
 
         }
 
-        public void resetIngredients(int scale) // a method that resets the recipe back to its original
+        public void resetIngredients(int scale) // a method that resets the recipe back to its original values
         {
             
         }
