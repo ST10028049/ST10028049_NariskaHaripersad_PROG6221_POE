@@ -90,7 +90,56 @@ namespace ST10028049_NariskaHaripersad_PROG6221_POE
 
         public void scaleIngredients(int scale) // a method that scales the ingredients 
         {
+            
+            isInputValid = false; // to validate the user's input 
+            while (!isInputValid) // while loop will keep running until the user's input is valid - the input will only be valid if the user enters 1, 2 or 3
+            {
+                try
+                {
+                    if (scale == 1) 
+                    {
+                        for (int i = 0; i < numOfIngredients; i++)
+                        {
+                            ingredientQuantities[i] = (ingredientQuantities[i] * 0.5); 
+                        }
+                        Console.WriteLine("The recipe has been successfully scaled.");
+                        isInputValid = true;
+                    }
+                    else
+                    {
+                        if (scale == 2)
+                        {
+                            for (int i = 0; i < numOfIngredients; i++)
+                            {
+                                ingredientQuantities[i] = (ingredientQuantities[i] * 2);
+                            }
+                            Console.WriteLine("The recipe has been successfully scaled.");
+                            isInputValid = true;
+                        }
+                        else
+                        {
+                            if (scale == 3)
+                            {
+                                for (int i = 0; i < numOfIngredients; i++)
+                                {
+                                    ingredientQuantities[i] = (ingredientQuantities[i] * 3);
+                                }
+                                Console.WriteLine("The recipe has been successfully scaled.");
+                                isInputValid = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid option!");
+                            }
+                        }
+                    }
 
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Input is invalid!");
+                }
+            }
         }
 
         public void resetIngredients(int scale) // a method that resets the recipe back to its original values
